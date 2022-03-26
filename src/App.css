@@ -105,9 +105,10 @@ section {
 body {
   line-height: 1;
   overflow-wrap: break-word;
+  background-color: #f6f6f6;
 }
 
-/* Do not break Korean woords */
+/* Do not break Korean words */
 :lang(ko) {
   word-break: keep-all;
 }
