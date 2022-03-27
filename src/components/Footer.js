@@ -1,4 +1,4 @@
-import { useNavigate, useLocation } from 'react-router-dom';
+import { useNavigate, useLocation, Link } from 'react-router-dom';
 import styled from 'styled-components'
 import { HomeIcon, PersonIcon, StarIcon } from "./assets";
 
@@ -13,8 +13,12 @@ const Footer = () => {
                     <StarIcon />
                     <MenuText>즐겨찾기</MenuText>
                 </Tab>
-                <Tab onClick={() => {navigate("/")}}><HomeIcon /><MenuText>홈</MenuText></Tab>
-                <Tab onClick={() => {navigate("/profile")}}><PersonIcon /><MenuText>프로필</MenuText></Tab>
+                <Link to={"/home"}>
+                    <Tab><HomeIcon /><MenuText>홈</MenuText></Tab>
+                </Link>
+                <Link to={"/profile"}>
+                    <Tab><PersonIcon /><MenuText>프로필</MenuText></Tab>
+                </Link>
             </Tabs>
         </footer>
     )
@@ -24,7 +28,6 @@ export default Footer;
 
 const Tabs = styled.ul`
     display: flex;
-    border: solid 1px red;
     justify-content: space-around;
     box-sizing: border-box;
     background-color: #fff;
