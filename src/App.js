@@ -10,6 +10,7 @@ import Search from './pages/Search';
 import New from './pages/New';
 import Header from './components/Header';
 import List from './pages/List';
+import View from './pages/View';
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
             <Route path="/profile" element={<Profile />} />
             <Route path="/search" element={<Search />} />
             <Route path="/new" element={<New />} />
+            <Route path="/view" element={<View />} />
             <Route path="/list" element={<List />} />
         </Routes>
     </ContentWrapper>
