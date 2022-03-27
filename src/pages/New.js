@@ -35,9 +35,9 @@ const New = () => {
                     </SelectWrapper>
                     <label htmlFor="memo"></label>
                     <Textarea name="memo" id="memo" cols="30" rows="10" placeholder='메모하고 싶은 내용을 입력하세요.'></Textarea>
+                    <SubmitBtn type="submit">저장</SubmitBtn>
                 </fieldset>
             </form>
-
         </div>
     )
 }
@@ -101,4 +101,14 @@ const Textarea = styled.textarea`
     padding: 0.8rem;
     width: 100%;
     border-radius: 0.5rem;
+    margin-bottom: 1rem;
+`
+
+const SubmitBtn = styled.button`
+    background-color: #04202F;
+    color: #fff;
+    padding: 0.625rem 1rem;
+    border-radius: 0.3rem;
+    font-weight: 700;
+    float: right;
 `
