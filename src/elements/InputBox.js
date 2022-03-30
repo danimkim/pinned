@@ -10,7 +10,7 @@ const InputBox = (props) => {
 
     return (
         <div>
-            <label htmlFor={props.id}>{props.children}</label>
+            <Label htmlFor={props.id}>{props.children}</Label>
             <InputContainer>
                 {props.id === "nickname" && <PersonEmptyIcon />}
                 {props.id === "email" && <MailIcon />}
@@ -25,13 +25,13 @@ const InputBox = (props) => {
 export default InputBox;
 
 const InputContainer = styled.div`
+    display: flex;
+    align-items: center;
     border: solid 1px #A2ADB1;
     height: 2.75rem;
     border-radius: 1.5rem;
     padding-left: 1rem;
     background-color: #fff;
-    display: flex;
-    align-items: center;
 `
 
 const Input = styled.input`
@@ -40,8 +40,21 @@ const Input = styled.input`
     width: calc(100% - 2rem);
 `
 
+const Label = styled.label`
+    display: block;
+    font-size: 1rem;
+    font-weight: 700;
+    margin-left: 17px;
+    margin-bottom: 0.5rem;
+    div + & {
+        margin-top: 1rem;
+    }
+`
+
 const Warn = styled.p`
+    display: none;
     color: red;
+    padding-left: 17px;
     font-size: 0.8rem;
     font-weight: 700;
     div + & {
