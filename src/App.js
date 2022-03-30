@@ -15,9 +15,9 @@ import Login from "./pages/Login";
 
 function App() {
   const location = useLocation();
-    const noHeaderPathnames = ["/signup", "/", "/home"]
-    const noFooterPathnames = ["/signup", "/", "/profile", "/login"]
-
+  const noHeaderPathnames = ["/signup", "/", "/home"]
+  const noFooterPathnames = ["/signup", "/", "/profile", "/login"]
+  
   return (
     <div className="App">
       {!noHeaderPathnames.includes(location.pathname) && <Header />}
@@ -46,4 +46,3 @@ const ContentWrapper = styled.div`
   max-width: 640px;
   margin: 0 auto;
 `;
-
