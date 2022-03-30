@@ -23,7 +23,7 @@ const SignUp = () => {
             </form>
 
             <Wrapper>
-                <span>이미 회원이신가요?</span><Link to={"/signup"}><Login>로그인</Login></Link>
+                <span>이미 회원이신가요?</span><Link to={"/login"}><Login>로그인</Login></Link>
             </Wrapper>
         </div>
     )
@@ -44,7 +44,7 @@ const SubmitBtn = styled.button`
     padding: 0.625rem 1rem;
     border-radius: 1.5rem;
     font-weight: 700;
-    width: 80%;
+    width: 100%;
     margin: 0 auto 0.8rem;
     &:hover {
         cursor: pointer;
@@ -72,13 +72,4 @@ const TextWrapper = styled.ul`
 
 const Strong = styled.strong`
     color: #C89E86;
-`
-
-const Warn = styled.p`
-    color: red;
-    font-size: 0.8rem;
-    font-weight: 700;
-    div + & {
-        margin: 0.5rem 0 0.8rem;
-    }
 `
