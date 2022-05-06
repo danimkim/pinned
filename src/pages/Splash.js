@@ -12,7 +12,7 @@ const Splash = () => {
 
   return (
       <ImgContainer>
-        <img src={`${process.env.PUBLIC_URL}/logo.png`} alt="핀드" />
+        <Logo src={`${process.env.PUBLIC_URL}/logo-red.png`} alt="핀드" />
       </ImgContainer>
   );
 };
@@ -41,4 +41,8 @@ const ImgContainer = styled.div`
   left: 0;
   animation: ${fadeOut} 1.2s ease-in-out;
   animation-delay: 0.5s;
+`
+
+const Logo = styled.img`
+    width: 10rem;
 `
