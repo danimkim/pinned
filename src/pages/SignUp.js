@@ -5,7 +5,7 @@ import InputBox from '../elements/InputBox';
 const SignUp = () => {
     return (
         <div>
-            {/* <Logo src={`${process.env.PUBLIC_URL}/logo.png`} alt="로고" /> */}
+            {/* <Logo src={`${process.env.PUBLIC_URL}/logo-red.png`} alt="로고" /> */}
             <TextWrapper>
                 <li>간편하고 한 눈에 보기 쉬운</li>
                 <li>나만의 <Strong>장소 즐겨찾기 서비스</Strong>를</li>
@@ -13,7 +13,7 @@ const SignUp = () => {
             </TextWrapper>
             <form>
                 <fieldset>
-                    <legend style={{display:"none"}}>회원가입 폼</legend>
+                    <legend style={{display: "none"}}>회원가입</legend>
                     <InputBox id="nickname">닉네임</InputBox>
                     <InputBox id="email">이메일</InputBox>
                     <InputBox type="password" id="pw">비밀번호</InputBox>

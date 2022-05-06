@@ -32,6 +32,9 @@ const InputContainer = styled.div`
     border-radius: 1.5rem;
     padding-left: 1rem;
     background-color: #fff;
+    & + label {
+        margin-bottom: 1rem;
+    }
 `
 
 const Input = styled.input`
@@ -46,13 +49,13 @@ const Label = styled.label`
     font-weight: 700;
     margin-left: 17px;
     margin-bottom: 0.5rem;
-    div + & {
+    & + p {
         margin-top: 1rem;
     }
 `
 
 const Warn = styled.p`
-    display: none;
+    /* display: none; */
     color: red;
     padding-left: 17px;
     font-size: 0.8rem;
