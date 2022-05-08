@@ -1,4 +1,5 @@
-import { ArrowLeftIcon, SearchIcon } from "./assets";
+import ArrowLeftIcon from "../@types/assets/ArrowLeftIcon.svg";
+import SearchIcon from "../@types/assets/SearchIcon.svg";
 import styled from 'styled-components';
 import { useLocation, useNavigate } from "react-router-dom";
 
@@ -7,7 +8,10 @@ const Header = () => {
     const location = useLocation();
     return (
         <HeaderBar>
-            <button onClick={()=>{navigate(-1)}} current={location.pathname !== "home" ? 1 : 0}><ArrowLeftIcon /></button>
+            {/* <button onClick={()=>{navigate(-1)}} current={location.pathname !== "home" ? 1 : 0}><ArrowLeftIcon /></button> */}
+        <button onClick={() => { navigate(-1) }}>
+          <ArrowLeftIcon />
+        </button>
             
             <SearchIcon />
         </HeaderBar>

@@ -1,6 +1,8 @@
 import { useNavigate, useLocation, Link } from 'react-router-dom';
 import styled from 'styled-components'
-import { HomeIcon, PersonIcon, StarIcon } from "./assets";
+import HomeIcon from "../@types/assets/HomeIcon.svg";
+import PersonIcon from "../@types/assets/PersonIcon.svg";
+import StarIcon from "../@types/assets/StarIcon.svg";
 
 const Footer = () => {
     const location = useLocation();
@@ -9,7 +11,8 @@ const Footer = () => {
     return (
         <footer>
             <Tabs>
-                <Tab onClick={() => {navigate("/home")}} current={location.pathname !== "/home" ? 1 : 0}>
+                {/* <Tab onClick={() => {navigate("/home")}} current={location.pathname !== "/home" ? 1 : 0}> */}
+                <Tab onClick={() => {navigate("/home")}}>
                     <StarIcon />
                     <MenuText>즐겨찾기</MenuText>
                 </Tab>

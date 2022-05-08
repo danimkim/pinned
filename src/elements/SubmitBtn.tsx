@@ -1,6 +1,10 @@
 import styled from 'styled-components';
 
-const SubmitBtn = (props) => {
+interface SubmitBtnProps {
+  children: string,
+}
+
+const SubmitBtn = (props:SubmitBtnProps) => {
     return (
         <Button>{props.children}</Button>
     )

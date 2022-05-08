@@ -34,7 +34,7 @@ const New = () => {
                         </Select>
                     </SelectWrapper>
                     <label htmlFor="memo"></label>
-                    <Textarea name="memo" id="memo" cols="30" rows="10" placeholder='메모하고 싶은 내용을 입력하세요.'></Textarea>
+                    {/* <Textarea name="memo" id="memo" cols="30" rows="10" placeholder='메모하고 싶은 내용을 입력하세요.'></Textarea> */}
                     <SubmitBtn type="submit">저장</SubmitBtn>
                 </fieldset>
             </form>

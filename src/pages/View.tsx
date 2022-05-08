@@ -1,5 +1,6 @@
 import styled from "styled-components"
-import { DeleteIcon, EditIcon } from "../components/assets";
+import DeleteIcon from "../@types/assets/DeleteIcon.svg";
+import EditIcon from "../@types/assets/EditIcon.svg";
 
 const View = () => {
     return (

@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { DeleteIcon } from "./assets";
+import DeleteIcon from "../@types/assets/DeleteIcon.svg";
 
 
 const ListCard = () => {

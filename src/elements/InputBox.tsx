@@ -1,7 +1,15 @@
 import styled from 'styled-components';
-import { MailIcon, PersonEmptyIcon, LockIcon } from '../components/assets';
+import MailIcon from '../@types/assets/MailIcon.svg';
+import PersonEmptyIcon from '../@types/assets/PersonEmptyIcon.svg';
+import LockIcon from '../@types/assets/LockIcon.svg';
 
-const InputBox = (props) => {
+interface InputBoxProps {
+  id: string,
+  children?: string,
+  type?: string,
+}
+
+const InputBox = (props: InputBoxProps) => {
     // nickname, email, pw, pwconfirm
     const warningMsgNickname = "3글자 이상 입력해주세요.";
     const warningMsgEmail = "이메일을 올바르게 입력해주세요."
@@ -63,8 +71,4 @@ const Warn = styled.p`
     div + & {
         margin: 0.5rem 0 0.8rem;
     }
-`
-
-Input.defaultProps = `
-    type: "text"
 `

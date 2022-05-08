@@ -1,6 +1,10 @@
 import styled from 'styled-components';
 
-const Button = (props) => {
+interface ButtonProps {
+  children: string,
+}
+
+const Button = (props:ButtonProps) => {
     return (
         <div>
             <StyledButton>{props.children}</StyledButton>

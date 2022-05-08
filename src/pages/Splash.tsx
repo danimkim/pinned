@@ -3,16 +3,17 @@ import { useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 
 const Splash = () => {
+  const duration: number = 1500;
   const navigate = useNavigate();
   useEffect(() => {
     setTimeout(() => {
       navigate("/signup");
-    }, [1500]);
+    }, duration);
   });
 
   return (
       <ImgContainer>
-        <Logo src={`${process.env.PUBLIC_URL}/logo-red.png`} alt="핀드" />
+        {/* <Logo src={`${process.env.PUBLIC_URL}/logo-red.png`} alt="핀드" /> */}
       </ImgContainer>
   );
 };

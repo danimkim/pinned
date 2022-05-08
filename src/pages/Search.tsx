@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { SearchIcon } from '../components/assets';
+import SearchIcon from '../@types/assets/SearchIcon.svg';
 
 const Search = () => {
     return (

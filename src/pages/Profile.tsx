@@ -1,4 +1,4 @@
-import {PersonIcon} from "../components/assets"
+import PersonIcon from "../@types/assets/PersonIcon.svg"
 import styled from 'styled-components'
 import SubmitBtn from "../elements/SubmitBtn";
 
