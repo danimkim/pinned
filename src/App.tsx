@@ -3,7 +3,6 @@ import { Routes, Route, useLocation } from "react-router-dom";
 import styled from "styled-components";
 import Home from "./pages/Home";
 import Splash from "./pages/Splash";
-import SignUp from "./pages/SignUp";
 import Footer from "./components/Footer";
 import Profile from "./pages/Profile";
 import Search from "./pages/Search";
@@ -12,12 +11,13 @@ import Header from "./components/Header";
 import List from "./pages/List";
 import View from "./pages/View";
 import Login from "./pages/Login";
+import Auth from "./pages/Auth";
 
 function App() {
   const location = useLocation();
-  const noHeaderPathnames = ["/signup", "/", "/home"]
-  const noFooterPathnames = ["/signup", "/", "/profile", "/login"]
-  
+  const noHeaderPathnames = ["/auth", "/", "/home"];
+  const noFooterPathnames = ["/auth", "/", "/profile", "/login"];
+
   return (
     <div className="App">
       {!noHeaderPathnames.includes(location.pathname) && <Header />}
@@ -26,7 +26,7 @@ function App() {
           <Route path="/" element={<Splash />} />
           <Route path="/home" element={<Home />} />
           <Route path="/login" element={<Login />} />
-          <Route path="/signup" element={<SignUp />} />
+          <Route path="/auth" element={<Auth />} />
           <Route path="/profile" element={<Profile />} />
           <Route path="/search" element={<Search />} />
           <Route path="/new" element={<New />} />
