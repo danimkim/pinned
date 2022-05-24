@@ -12,7 +12,8 @@ const Splash = () => {
   });
 
   return (
-      <ImgContainer>
+    <ImgContainer>
+        <span>로고</span>
         {/* <Logo src={`${process.env.PUBLIC_URL}/logo-red.png`} alt="핀드" /> */}
       </ImgContainer>
   );

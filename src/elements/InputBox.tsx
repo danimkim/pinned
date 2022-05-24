@@ -20,9 +20,12 @@ const InputBox = (props: InputBoxProps) => {
         <div>
             <Label htmlFor={props.id}>{props.children}</Label>
             <InputContainer>
-                {props.id === "nickname" && <PersonEmptyIcon />}
-                {props.id === "email" && <MailIcon />}
-                {(props.id === "pw" || props.id === "pwconfirm") && <LockIcon />}
+                {/* {props.id === "nickname" && <PersonEmptyIcon />} */}
+                {props.id === "nickname" && null}
+                {/* {props.id === "email" && <MailIcon />} */}
+                {props.id === "email" && null}
+                {/* {(props.id === "pw" || props.id === "pwconfirm") && <LockIcon />} */}
+                {(props.id === "pw" || props.id === "pwconfirm") && null}
                 <Input type={props.type} id={props.id}/>
             </InputContainer>            
             <Warn>{warningMsgNickname}</Warn>
