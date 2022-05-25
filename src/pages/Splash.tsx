@@ -1,21 +1,20 @@
-import styled, { keyframes } from "styled-components";
-import { useNavigate } from "react-router-dom";
-import { useEffect } from "react";
+import styled, { keyframes } from 'styled-components';
+import { useNavigate } from 'react-router-dom';
+import { useEffect } from 'react';
 
 const Splash = () => {
   const duration: number = 1500;
   const navigate = useNavigate();
   useEffect(() => {
     setTimeout(() => {
-      navigate("/signup");
+      navigate('/auth');
     }, duration);
   });
 
   return (
     <ImgContainer>
-        <span>로고</span>
-        {/* <Logo src={`${process.env.PUBLIC_URL}/logo-red.png`} alt="핀드" /> */}
-      </ImgContainer>
+      <Logo src={`${process.env.PUBLIC_URL}/logo-red.png`} alt="핀드" />
+    </ImgContainer>
   );
 };
 
@@ -43,8 +42,8 @@ const ImgContainer = styled.div`
   left: 0;
   animation: ${fadeOut} 1.2s ease-in-out;
   animation-delay: 0.5s;
-`
+`;
 
 const Logo = styled.img`
-    width: 10rem;
-`
+  width: 10rem;
+`;
