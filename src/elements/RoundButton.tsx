@@ -6,6 +6,7 @@ interface ButtonProps {
   height?: string;
   borderColor?: string;
   bgColor?: string;
+  color?: string;
 }
 
 const StyledButton = styled.button<ButtonProps>`
@@ -14,10 +15,19 @@ const StyledButton = styled.button<ButtonProps>`
   border: solid 1px
     ${(props) =>
       props.borderColor === 'yellow'
-        ? props.theme.pinColor.darkblue
-        : props.theme.pinColor.coral};
-  border-radius: 1rem;
-  background-color: ${(props) => props.bgColor};
+        ? props.theme.yellow
+        : props.theme.darknavy};
+  border-radius: 2rem;
+  background-color: ${(props) => {
+    if (props.bgColor === 'yellow') {
+      return props.theme.yellow;
+    } else if (props.bgColor === 'darkNavy') {
+      return props.theme.darknavy;
+    } else {
+      return 'none';
+    }
+  }};
+  color: ${(props) => (props.color === 'white' ? '#fff' : 'initial')};
   &:hover {
     cursor: pointer;
   }

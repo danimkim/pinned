@@ -1,22 +1,22 @@
-import "./App.css";
-import { Routes, Route, useLocation } from "react-router-dom";
-import styled from "styled-components";
-import Home from "./pages/Home";
-import Splash from "./pages/Splash";
-import Footer from "./components/Footer";
-import Profile from "./pages/Profile";
-import Search from "./pages/Search";
-import New from "./pages/New";
-import Header from "./components/Header";
-import List from "./pages/List";
-import View from "./pages/View";
-import Login from "./pages/Login";
-import Auth from "./pages/Auth";
+import './App.css';
+import { Routes, Route, useLocation } from 'react-router-dom';
+import styled from 'styled-components';
+import Home from './pages/Home';
+import Splash from './pages/Splash';
+import Footer from './components/Footer';
+import Profile from './pages/Profile';
+import Search from './pages/Search';
+import New from './pages/New';
+import Header from './components/Header';
+import List from './pages/List';
+import View from './pages/View';
+import Login from './pages/Login';
+import Auth from './pages/Auth';
 
 function App() {
   const location = useLocation();
-  const noHeaderPathnames = ["/auth", "/", "/home"];
-  const noFooterPathnames = ["/auth", "/", "/profile", "/login"];
+  const noHeaderPathnames = ['/auth', '/', '/home'];
+  const noFooterPathnames = ['/auth', '/', '/profile', '/login'];
 
   return (
     <div className="App">

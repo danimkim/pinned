@@ -1,9 +1,38 @@
 import styled from 'styled-components';
 import { Link, useNavigate } from 'react-router-dom';
 import RoundButton from '../elements/RoundButton';
+import { GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
+import { auth } from './../fbase';
 
 const Auth = () => {
   const navigate = useNavigate();
+
+  const handleGoogleLogin = async () => {
+    const provider = new GoogleAuthProvider();
+
+    const data = signInWithPopup(auth, provider)
+      .then((result) => {
+        // This gives you a Google Access Token. You can use it to access the Google API.
+        const credential = GoogleAuthProvider.credentialFromResult(result);
+        const token = credential?.accessToken;
+        // The signed-in user info.
+        const user = result.user;
+        // ...
+        console.log(user);
+      })
+      .catch((error) => {
+        // Handle Errors here.
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        // The email of the user's account used.
+        const email = error.customData.email;
+        // The AuthCredential type that was used.
+        const credential = GoogleAuthProvider.credentialFromError(error);
+        // ...
+
+        console.log(errorMessage);
+      });
+  };
 
   return (
     <Container>
@@ -18,11 +47,18 @@ const Auth = () => {
 
       <Wrapper>
         <div>
-          <RoundButton height="30px" borderColor="yellow" bgColor="FEE501">
+          <RoundButton height="35px" borderColor="yellow" bgColor="yellow">
             카카오 로그인
           </RoundButton>
-          <RoundButton height="30px">Google 로그인</RoundButton>
-          <RoundButton height="30px" onClick={() => navigate('/signup')}>
+          <RoundButton height="35px" onClick={handleGoogleLogin}>
+            Google 로그인
+          </RoundButton>
+          <RoundButton
+            height="35px"
+            bgColor="darkNavy"
+            color="white"
+            onClick={() => navigate('/signup')}
+          >
             이메일 회원가입
           </RoundButton>
         </div>
@@ -55,10 +91,10 @@ const Wrapper = styled.div`
   margin-top: 5rem;
   text-align: center;
   button {
-    margin-bottom: 0.3rem;
+    margin-bottom: 0.8rem;
   }
   button + button + button {
-    margin-bottom: 1rem;
+    margin-bottom: 2rem;
   }
 `;
 
