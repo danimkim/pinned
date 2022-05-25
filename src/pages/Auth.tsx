@@ -1,11 +1,13 @@
-import styled from "styled-components";
-import { Link } from "react-router-dom";
-import RoundButton from "../elements/RoundButton";
+import styled from 'styled-components';
+import { Link, useNavigate } from 'react-router-dom';
+import RoundButton from '../elements/RoundButton';
 
 const Auth = () => {
+  const navigate = useNavigate();
+
   return (
     <Container>
-      <Logo src={`${process.env.PUBLIC_URL}/logo-red.png`} alt="로고" />
+      <Logo src={`${process.env.PUBLIC_URL}/logo-color.png`} alt="로고" />
       {/* <TextWrapper>
         <li>간편하고 한 눈에 보기 쉬운</li>
         <li>
@@ -16,18 +18,16 @@ const Auth = () => {
 
       <Wrapper>
         <div>
-          <RoundButton height="30px" borderColor="yellow" bgColor="yellow">
+          <RoundButton height="30px" borderColor="yellow" bgColor="FEE501">
             카카오 로그인
           </RoundButton>
-          <RoundButton height="30px" borderColor="black" bgColor="#fff">
-            Google 로그인
-          </RoundButton>
-          <RoundButton height="30px" borderColor="black" bgColor="black">
+          <RoundButton height="30px">Google 로그인</RoundButton>
+          <RoundButton height="30px" onClick={() => navigate('/signup')}>
             이메일 회원가입
           </RoundButton>
         </div>
         <span>이미 회원이신가요?</span>
-        <Link to={"/login"}>
+        <Link to={'/login'}>
           <Login>로그인</Login>
         </Link>
       </Wrapper>
