@@ -12,6 +12,7 @@ import List from './pages/List';
 import View from './pages/View';
 import Login from './pages/Login';
 import Auth from './pages/Auth';
+import { auth } from './fbase';
 
 function App() {
   const location = useLocation();
@@ -19,8 +20,10 @@ function App() {
   const noFooterPathnames = ['/auth', '/', '/profile', '/login'];
 
   return (
-    <div className="App">
-      {!noHeaderPathnames.includes(location.pathname) && <Header />}
+    <div>
+      {!noHeaderPathnames.includes(location.pathname) && auth.currentUser && (
+        <Header />
+      )}
       <ContentWrapper>
         <Routes>
           <Route path="/" element={<Splash />} />
@@ -34,7 +37,9 @@ function App() {
           <Route path="/list" element={<List />} />
         </Routes>
       </ContentWrapper>
-      {!noFooterPathnames.includes(location.pathname) && <Footer />}
+      {!noFooterPathnames.includes(location.pathname) && auth.currentUser && (
+        <Footer />
+      )}
     </div>
   );
 }

@@ -1,22 +1,36 @@
-import styled from "styled-components";
-import SearchIcon from "../@types/assets/SearchIcon.svg";
-import Button from "../elements/RoundButton";
+import styled from 'styled-components';
+import { ReactComponent as SearchIcon } from './../assets/SearchIcon.svg';
+import PinButton from '../elements/PinButton';
+import { auth } from './../fbase';
 
 const Home = () => {
   return (
-    <div>
-      <Greeting>안녕하세요 Tina님</Greeting>
-      <SubGreeting>오늘의 마음의 드는 장소는 어디인가요?</SubGreeting>
-      <InputBox>
-        <SearchIcon />
-        <Input type="text" placeholder="Search..." />
-      </InputBox>
-      {/* <Button>저장한 장소</Button>
-      <Button>방문한 장소</Button>
-      <Button>지역별</Button>
-      <Button>카테고리별</Button>
-      <Button>내 취저 장소</Button> */}
-    </div>
+    <>
+      {auth.currentUser ? (
+        <>
+          <Greeting>안녕하세요 {auth.currentUser?.displayName}님</Greeting>
+          <SubGreeting>오늘의 마음의 드는 장소는 어디인가요?</SubGreeting>
+          <InputBox>
+            <SearchIcon />
+            <Input type="text" placeholder="Search..." />
+          </InputBox>
+          <ButtonContainer>
+            <PinButton order={1} colStart={1} colEnd={3}>
+              저장한 장소
+            </PinButton>
+            <PinButton order={2} colStart={1} colEnd={3}>
+              방문한 장소
+            </PinButton>
+            <PinButton order={3}>지역별 핀</PinButton>
+            <PinButton order={4}>카테고리별 핀</PinButton>
+            <PinButton order={5}>마음에 든 장소</PinButton>
+            <PinButton order={6}>스페셜 핀</PinButton>
+          </ButtonContainer>
+        </>
+      ) : (
+        '404 잘못된 접근입니다.'
+      )}
+    </>
   );
 };
 
@@ -31,7 +45,6 @@ const InputBox = styled.div`
 `;
 
 const Input = styled.input`
-  border: solid 1px blue;
   height: inherit;
   margin-left: 0.8rem;
   width: calc(100% - 2rem);
@@ -45,4 +58,10 @@ const Greeting = styled.p`
 const SubGreeting = styled.p`
   font-size: 1.875rem;
   margin-bottom: 2rem;
+`;
+
+const ButtonContainer = styled.div`
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.5rem;
 `;
