@@ -1,15 +1,25 @@
-import { useNavigate, useLocation, Link } from 'react-router-dom';
+import { useRef } from 'react';
+import { useNavigate, Link } from 'react-router-dom';
 import styled from 'styled-components';
 import { ReactComponent as HomeIcon } from './../assets/HomeIcon.svg';
 import { ReactComponent as PersonIcon } from './../assets/PersonIcon.svg';
 import { ReactComponent as StarIcon } from './../assets/StarIcon.svg';
 
-const Footer = () => {
-  const location = useLocation();
-  const navigate = useNavigate();
+interface FooterProps {
+  setFooterHeight: React.Dispatch<React.SetStateAction<number>>;
+}
 
+const Footer = ({ setFooterHeight }: FooterProps) => {
+  const navigate = useNavigate();
+  const footerRef = useRef<HTMLElement>(null);
+  console.log('footer height', footerRef.current?.clientHeight);
+  const height =
+    footerRef.current?.clientHeight === undefined
+      ? 0
+      : footerRef.current.clientHeight;
+  setFooterHeight(height);
   return (
-    <footer>
+    <Container ref={footerRef}>
       <Tabs>
         {/* <Tab onClick={() => {navigate("/home")}} current={location.pathname !== "/home" ? 1 : 0}> */}
         <Tab
@@ -33,11 +43,18 @@ const Footer = () => {
           </Tab>
         </Link>
       </Tabs>
-    </footer>
+    </Container>
   );
 };
 
 export default Footer;
+
+const Container = styled.footer`
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+`;
 
 const Tabs = styled.ul`
   display: flex;
