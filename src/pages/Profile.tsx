@@ -1,8 +1,16 @@
-import PersonIcon from './../assets/PersonIcon.svg';
+import { ReactComponent as PersonIcon } from './../assets/PersonIcon.svg';
 import styled from 'styled-components';
 import SubmitBtn from '../elements/SubmitBtn';
+import { auth } from './../fbase';
+import { Outlet, useNavigate, Link, useLocation } from 'react-router-dom';
+import EditProfile from '../components/EditProfile';
+import { useState } from 'react';
 
 const Profile = () => {
+  const [display, setDisplay] = useState(false);
+  const navigate = useNavigate();
+  const location = useLocation();
+  console.log(location.pathname);
   return (
     <div>
       <Wrapper>
@@ -11,10 +19,20 @@ const Profile = () => {
           <AddBtn>+</AddBtn>
         </ProfilePic>
         <div>
-          <Name>Tina Kim</Name>
+          <Name>{auth.currentUser?.displayName}</Name>
         </div>
       </Wrapper>
-      <SubmitBtn>회원정보 수정</SubmitBtn>
+      {!display && (
+        <SubmitBtn
+          onClick={() => {
+            navigate('edit');
+            setDisplay((prev) => !prev);
+          }}
+        >
+          회원정보 수정
+        </SubmitBtn>
+      )}
+      <Outlet context={<EditProfile />} />
     </div>
   );
 };
