@@ -3,6 +3,9 @@ import styled from 'styled-components';
 import { ReactComponent as PersonEmptyIcon } from './../assets/PersonEmptyIcon.svg';
 import { ReactComponent as MailIcon } from './../assets/MailIcon.svg';
 import { ReactComponent as LockIcon } from './../assets/LockIcon.svg';
+import { auth } from '../fbase';
+import { createUserWithEmailAndPassword } from 'firebase/auth';
+import { useNavigate } from 'react-router-dom';
 
 const SubmitBtn = styled.button`
   display: block;
@@ -68,6 +71,8 @@ interface IAuthForm {
 }
 
 const AuthForm = () => {
+  const navigate = useNavigate();
+
   const {
     register,
     formState: { errors },
@@ -87,6 +92,19 @@ const AuthForm = () => {
     // setError('extraError', {
     //   message: '일시적인 오류로 회원가입이 불가능합니다.',
     // });
+
+    createUserWithEmailAndPassword(auth, data.email, data.pw)
+      .then((userCredential) => {
+        const user = userCredential.user;
+        console.log(user);
+        navigate('/home');
+      })
+      .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        console.log(errorCode);
+        console.log(errorMessage);
+      });
   };
 
   return (
