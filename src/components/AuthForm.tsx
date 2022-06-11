@@ -4,7 +4,7 @@ import { ReactComponent as PersonEmptyIcon } from './../assets/PersonEmptyIcon.s
 import { ReactComponent as MailIcon } from './../assets/MailIcon.svg';
 import { ReactComponent as LockIcon } from './../assets/LockIcon.svg';
 import { auth } from '../fbase';
-import { createUserWithEmailAndPassword } from 'firebase/auth';
+import { createUserWithEmailAndPassword, updateProfile } from 'firebase/auth';
 import { useNavigate } from 'react-router-dom';
 
 const SubmitBtn = styled.button`
@@ -97,7 +97,9 @@ const AuthForm = () => {
       .then((userCredential) => {
         const user = userCredential.user;
         console.log(user);
-        navigate('/home');
+        updateProfile(user, {
+          displayName: data.nickname,
+        }).then(() => navigate('/home'));
       })
       .catch((error) => {
         const errorCode = error.code;
