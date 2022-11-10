@@ -41,7 +41,7 @@ function App() {
 
   return (
     <>
-      {init ? (
+      {init && (
         <Container>
           {!noHeaderPathnames.includes(location.pathname) &&
             auth.currentUser && <Header />}
@@ -65,8 +65,6 @@ function App() {
           {!noFooterPathnames.includes(location.pathname) &&
             auth.currentUser && <Footer />}
         </Container>
-      ) : (
-        'Initializing...'
       )}
     </>
   );
@@ -81,6 +79,6 @@ const ContentWrapper = styled.div`
 `;
 
 const Container = styled.div`
-  /* border: 1px solid red; */
+  border: 1px solid red;
   height: 100dvh;
 `;

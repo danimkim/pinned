@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { useEffect } from 'react';
 
 const Splash = () => {
-  const duration: number = 1500;
+  const duration = 2000;
   const navigate = useNavigate();
   useEffect(() => {
     setTimeout(() => {
@@ -41,7 +41,7 @@ const ImgContainer = styled.div`
   top: 0;
   left: 0;
   animation: ${fadeOut} 1.2s ease-in-out;
-  animation-delay: 0.5s;
+  animation-delay: 1s;
 `;
 
 const Logo = styled.img`
