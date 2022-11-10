@@ -78,7 +78,7 @@ const AuthForm = () => {
     formState: { errors },
     handleSubmit,
     setError,
-  } = useForm<IAuthForm>();
+  } = useForm<IAuthForm>({ mode: 'onBlur' });
 
   const onValid = (data: IAuthForm) => {
     if (data.pw !== data.pwConfirm) {

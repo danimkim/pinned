@@ -4,22 +4,13 @@ import styled from 'styled-components';
 import { useNavigate } from 'react-router-dom';
 import { useRef } from 'react';
 
-interface HeaderProps {
-  setHeaderHeight: React.Dispatch<React.SetStateAction<number>>;
-}
-
-const Header = ({ setHeaderHeight }: HeaderProps) => {
+const Header = () => {
   const navigate = useNavigate();
   const headerRef = useRef<HTMLElement>(null);
-  console.log('header height', headerRef.current?.clientHeight);
-  const height =
-    headerRef.current?.clientHeight === undefined
-      ? 0
-      : headerRef.current.clientHeight;
-  setHeaderHeight(height);
+  // console.log('header height', headerRef.current?.clientHeight);
 
   return (
-    <HeaderBar ref={headerRef}>
+    <HeaderBar>
       {/* <button onClick={()=>{navigate(-1)}} current={location.pathname !== "home" ? 1 : 0}><ArrowLeftIcon /></button> */}
       <button
         onClick={() => {

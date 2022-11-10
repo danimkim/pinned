@@ -81,6 +81,6 @@ const ContentWrapper = styled.div`
 `;
 
 const Container = styled.div`
-  border: 1px solid red;
+  /* border: 1px solid red; */
   height: 100dvh;
 `;

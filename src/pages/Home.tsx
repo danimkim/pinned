@@ -3,6 +3,36 @@ import { ReactComponent as SearchIcon } from './../assets/SearchIcon.svg';
 import PinButton from '../elements/PinButton';
 import { auth } from './../fbase';
 
+const InputBox = styled.div`
+  border: solid 1px #a2adb1;
+  height: 3.125rem;
+  border-radius: 1.5rem;
+  padding-left: 1rem;
+  background-color: #fff;
+`;
+
+const Input = styled.input`
+  height: inherit;
+  margin-left: 0.8rem;
+  width: calc(100% - 2rem);
+`;
+
+const Greeting = styled.p`
+  font-size: 1.5rem;
+  padding-bottom: 0.5rem;
+`;
+
+const SubGreeting = styled.p`
+  font-size: 1.875rem;
+  margin-bottom: 2rem;
+`;
+
+const ButtonContainer = styled.div`
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.5rem;
+`;
+
 const Home = () => {
   return (
     <>
@@ -35,33 +65,3 @@ const Home = () => {
 };
 
 export default Home;
-
-const InputBox = styled.div`
-  border: solid 1px #a2adb1;
-  height: 3.125rem;
-  border-radius: 1.5rem;
-  padding-left: 1rem;
-  background-color: #fff;
-`;
-
-const Input = styled.input`
-  height: inherit;
-  margin-left: 0.8rem;
-  width: calc(100% - 2rem);
-`;
-
-const Greeting = styled.p`
-  font-size: 1.5rem;
-  padding-bottom: 0.5rem;
-`;
-
-const SubGreeting = styled.p`
-  font-size: 1.875rem;
-  margin-bottom: 2rem;
-`;
-
-const ButtonContainer = styled.div`
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 0.5rem;
-`;

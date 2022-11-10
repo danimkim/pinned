@@ -1,25 +1,14 @@
-import { useRef } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import styled from 'styled-components';
 import { ReactComponent as HomeIcon } from './../assets/HomeIcon.svg';
 import { ReactComponent as PersonIcon } from './../assets/PersonIcon.svg';
 import { ReactComponent as StarIcon } from './../assets/StarIcon.svg';
 
-interface FooterProps {
-  setFooterHeight: React.Dispatch<React.SetStateAction<number>>;
-}
-
-const Footer = ({ setFooterHeight }: FooterProps) => {
+const Footer = () => {
   const navigate = useNavigate();
-  const footerRef = useRef<HTMLElement>(null);
-  console.log('footer height', footerRef.current?.clientHeight);
-  const height =
-    footerRef.current?.clientHeight === undefined
-      ? 0
-      : footerRef.current.clientHeight;
-  setFooterHeight(height);
+
   return (
-    <Container ref={footerRef}>
+    <Container>
       <Tabs>
         {/* <Tab onClick={() => {navigate("/home")}} current={location.pathname !== "/home" ? 1 : 0}> */}
         <Tab

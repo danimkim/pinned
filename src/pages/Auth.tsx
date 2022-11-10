@@ -59,11 +59,13 @@ const Auth = () => {
 export default Auth;
 
 const Container = styled.div`
+  margin-top: 50%;
+  transform: translateY(-25%);
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  height: 100vh;
+  /* border: solid 1px blue; */
 `;
 
 const Logo = styled.img`
